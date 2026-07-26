@@ -29,7 +29,7 @@ from bots.common.selectors import (
     wait_for_any_elements,
     wait_for_first,
 )
-from bots.common.workflow import wait_for_confirmation
+from bots.common.workflow import wait_for_confirmation, handle_external_application
 
 
 CARD_LOCATORS = (
@@ -189,6 +189,16 @@ class NaukriBot(BaseBot):
             return False, "submit clicked but Naukri success confirmation was not detected"
         return False, "Naukri form could not reach a confirmed submission"
 
+    def handle_external_application(self, job: JobInfo) -> tuple[JobInfo, AttemptOutcome]:
+        """Handle applications on external company websites by delegating to common workflow."""
+        assert self.driver is not None and self.form_filler is not None
+        return handle_external_application(
+            self.driver,
+            self.form_filler,
+            job,
+            self.config.slow_mo,
+        )
+
     def attempt(self, initial: JobInfo) -> tuple[JobInfo, AttemptOutcome]:
         assert self.driver is not None
         if not initial.url:
@@ -213,7 +223,8 @@ class NaukriBot(BaseBot):
                 ((By.ID, "company-site-button"), (By.XPATH, "//*[contains(., 'Apply on company site')]")),
                 visible=True,
             ):
-                return job, AttemptOutcome.skipped("external company application")
+                # Instead of skipping, handle external company website applications
+                return self.handle_external_application(job)
             try:
                 apply_button = wait_for_first(
                     self.driver,

@@ -1,20 +1,34 @@
-"""Common application-form discovery and safe field filling."""
+"""Common application-form discovery and safe field filling with deep ATS support."""
 
 from __future__ import annotations
 
 import os
+import time
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-from selenium.common.exceptions import ElementNotInteractableException, StaleElementReferenceException
+from selenium.common.exceptions import ElementNotInteractableException, StaleElementReferenceException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import Select, WebDriverWait
 
 from .answers import AnswerEngine
 from .delays import human_delay, human_type
 from .paths import APP_ROOT, resolve_app_path
-from .selectors import safe_click
+from .selectors import (
+    COMMON_BUTTON_LOCATORS,
+    COMMON_CHECKBOX_LOCATORS,
+    COMMON_DROPDOWN_LOCATORS,
+    COMMON_FILE_UPLOAD_LOCATORS,
+    COMMON_INPUT_LOCATORS,
+    COMMON_LABEL_PATTERNS,
+    COMMON_RADIO_GROUP_LOCATORS,
+    Locator,
+    find_all_fallback,
+    find_button_by_text,
+    find_first,
+    safe_click,
+)
 
 
 _SKIP_INPUT_TYPES = {"hidden", "submit", "button", "reset", "image"}
@@ -126,23 +140,80 @@ class FormFiller:
         return path if path.is_file() else None
 
     def _fill_select(self, field: Any, question: str) -> bool:
-        select = Select(field)
-        options = [option.text.strip() for option in select.options if option.text.strip()]
-        answer = self.answers.answer(question, options=options, context=self.context)
-        for option in select.options:
-            if option.text.strip() == answer:
-                select.select_by_visible_text(option.text)
+        """Fill a select element (standard or custom dropdown)."""
+        try:
+            # Try standard HTML select
+            select = Select(field)
+            options = [option.text.strip() for option in select.options if option.text.strip()]
+            answer = self.answers.answer(question, options=options, context=self.context)
+            for option in select.options:
+                if option.text.strip() == answer:
+                    select.select_by_visible_text(option.text)
+                    return True
+        except Exception:
+            # Handle custom dropdowns (div-based)
+            pass
+        return False
+
+    def _fill_custom_dropdown(self, dropdown: Any, question: str) -> bool:
+        """Handle custom dropdown components (React Select, etc.)."""
+        try:
+            # Click to open dropdown
+            safe_click(self.driver, dropdown)
+            human_delay(self.slow_mo, 0.5)
+            
+            # Find options in the opened dropdown
+            option_locators = (
+                (By.CSS_SELECTOR, "[role='option']"),
+                (By.CSS_SELECTOR, ".react-select__option, .select-option"),
+                (By.CSS_SELECTOR, "li[class*='option'], div[class*='option']"),
+            )
+            options = find_all_fallback(self.driver, option_locators, visible=True)
+            
+            if not options:
+                return False
+            
+            option_texts = [opt.text.strip() for opt in options if opt.text.strip()]
+            answer = self.answers.answer(question, options=option_texts, context=self.context)
+            
+            # Click the matching option
+            for opt, text in zip(options, option_texts):
+                if text == answer:
+                    safe_click(self.driver, opt)
+                    return True
+            
+            # Fallback: click first option
+            if options:
+                safe_click(self.driver, options[0])
                 return True
+        except Exception:
+            pass
         return False
 
     def _fill_radios(self, root: Any) -> int:
+        """Fill radio button groups with enhanced ATS support."""
         filled = 0
         groups: dict[str, list[Any]] = {}
-        try:
-            radios = root.find_elements(By.CSS_SELECTOR, "input[type='radio']")
-        except Exception:
-            return 0
-        for index, radio in enumerate(radios):
+        
+        # Try multiple locator strategies for radio buttons
+        all_radios = []
+        for locators in [COMMON_RADIO_GROUP_LOCATORS, ((By.CSS_SELECTOR, "input[type='radio']"),)]:
+            radios = find_all_fallback(root, locators)
+            all_radios.extend(radios)
+        
+        # Remove duplicates by element ID
+        seen_ids = set()
+        unique_radios = []
+        for radio in all_radios:
+            try:
+                elem_id = radio.get_attribute("id") or id(radio)
+                if elem_id not in seen_ids and radio.is_enabled():
+                    seen_ids.add(elem_id)
+                    unique_radios.append(radio)
+            except Exception:
+                continue
+        
+        for index, radio in enumerate(unique_radios):
             try:
                 if not radio.is_enabled():
                     continue
@@ -159,6 +230,7 @@ class FormFiller:
                 groups.setdefault(key, []).append(radio)
             except StaleElementReferenceException:
                 continue
+        
         for fields in groups.values():
             if any(field.is_selected() for field in fields):
                 continue
@@ -174,63 +246,182 @@ class FormFiller:
                 continue
         return filled
 
-    def fill(self, root: Any | None = None) -> int:
-        search_root = root or self.driver
-        filled = self._fill_radios(search_root)
-        try:
-            fields = search_root.find_elements(
-                By.CSS_SELECTOR,
-                "input:not([type='radio']), select, textarea, [contenteditable='true'], div.textArea",
-            )
-        except Exception:
-            return filled
-        resume_path = self._resume_path()
-        for field in fields:
+    def _fill_checkboxes(self, root: Any) -> int:
+        """Fill checkbox elements with enhanced ATS support."""
+        filled = 0
+        
+        # Try multiple locator strategies
+        all_checkboxes = []
+        for locators in [COMMON_CHECKBOX_LOCATORS, ((By.CSS_SELECTOR, "input[type='checkbox']"),)]:
+            checkboxes = find_all_fallback(root, locators)
+            all_checkboxes.extend(checkboxes)
+        
+        # Remove duplicates
+        seen_ids = set()
+        unique_checkboxes = []
+        for cb in all_checkboxes:
             try:
-                tag = field.tag_name.lower()
-                field_type = (field.get_attribute("type") or "").lower()
-                if field_type in _SKIP_INPUT_TYPES or not field.is_enabled():
+                elem_id = cb.get_attribute("id") or id(cb)
+                if elem_id not in seen_ids and cb.is_enabled() and cb.is_displayed():
+                    seen_ids.add(elem_id)
+                    unique_checkboxes.append(cb)
+            except Exception:
+                continue
+        
+        for checkbox in unique_checkboxes:
+            try:
+                if checkbox.is_selected():
                     continue
-                if field_type == "file":
-                    if resume_path and not (field.get_attribute("value") or "").strip():
-                        field.send_keys(str(resume_path))
-                        filled += 1
-                    continue
-                if not field.is_displayed():
-                    continue
-                question = self._question_text(field)
-                if tag == "select":
-                    if self._fill_select(field, question):
-                        filled += 1
-                    continue
-                if field_type == "checkbox":
-                    if field.is_selected():
-                        continue
-                    answer = self.answers.answer(question, options=("Yes", "No"), context=self.context)
-                    required = field.get_attribute("required") is not None or field.get_attribute("aria-required") == "true"
-                    if required or answer.lower().startswith("yes"):
-                        safe_click(self.driver, field)
-                        filled += 1
-                    continue
-                existing = field.get_attribute("value") if tag != "div" else field.text
-                if existing and str(existing).strip():
-                    continue
-                answer = self.answers.answer(question, context=self.context)
-                if field_type in {"number", "range"} and not answer.replace(".", "", 1).isdigit():
-                    answer = "0"
-                if field_type == "email" and "@" not in answer:
-                    fallback_email = os.getenv("CANDIDATE_EMAIL") or _nested_profile_value(self.profile, ("email",))
-                    if fallback_email:
-                        answer = fallback_email
-                try:
-                    field.clear()
-                except Exception:
-                    field.send_keys(Keys.CONTROL, "a")
-                human_type(field, answer, self.slow_mo)
-                human_delay(self.slow_mo, 0.3)
-                filled += 1
+                
+                question = self._question_text(checkbox)
+                answer = self.answers.answer(question, options=("Yes", "No"), context=self.context)
+                required = checkbox.get_attribute("required") is not None or checkbox.get_attribute("aria-required") == "true"
+                
+                if required or answer.lower().startswith("yes"):
+                    safe_click(self.driver, checkbox)
+                    filled += 1
             except (ElementNotInteractableException, StaleElementReferenceException):
                 continue
             except Exception:
                 continue
+        
+        return filled
+
+    def _handle_file_upload(self, field: Any, resume_path: Path | None) -> bool:
+        """Handle file upload fields including drop zones."""
+        if not resume_path:
+            return False
+        
+        try:
+            # Standard file input
+            if field.tag_name.lower() == "input" and (field.get_attribute("type") or "").lower() == "file":
+                if not (field.get_attribute("value") or "").strip():
+                    field.send_keys(str(resume_path))
+                    return True
+        except Exception:
+            pass
+        
+        # Try to find and click drop zone to trigger file dialog
+        try:
+            drop_zones = find_all_fallback(self.driver, COMMON_FILE_UPLOAD_LOCATORS, visible=True)
+            for zone in drop_zones:
+                try:
+                    # Some drop zones accept send_keys directly
+                    zone.send_keys(str(resume_path))
+                    return True
+                except Exception:
+                    continue
+        except Exception:
+            pass
+        
+        return False
+
+    def fill(self, root: Any | None = None) -> int:
+        """Fill all form fields with comprehensive ATS support."""
+        search_root = root or self.driver
+        filled = 0
+        
+        # Fill radio groups first
+        filled += self._fill_radios(search_root)
+        
+        # Fill checkboxes
+        filled += self._fill_checkboxes(search_root)
+        
+        # Get resume path for file uploads
+        resume_path = self._resume_path()
+        
+        # Process all input types using comprehensive locators
+        processed_elements = set()
+        
+        for locators in [COMMON_INPUT_LOCATORS, COMMON_DROPDOWN_LOCATORS, COMMON_FILE_UPLOAD_LOCATORS]:
+            try:
+                fields = find_all_fallback(search_root, locators)
+            except Exception:
+                continue
+            
+            for field in fields:
+                try:
+                    # Skip already processed elements
+                    elem_id = field.get_attribute("id") or field.get_attribute("name") or id(field)
+                    if elem_id in processed_elements:
+                        continue
+                    processed_elements.add(elem_id)
+                    
+                    tag = field.tag_name.lower()
+                    field_type = (field.get_attribute("type") or "").lower()
+                    
+                    # Skip non-interactable types
+                    if field_type in _SKIP_INPUT_TYPES or not field.is_enabled():
+                        continue
+                    
+                    # Skip hidden elements (but allow file inputs that may be styled)
+                    if field_type != "file" and not field.is_displayed():
+                        continue
+                    
+                    # Handle file uploads
+                    if field_type == "file":
+                        if self._handle_file_upload(field, resume_path):
+                            filled += 1
+                        continue
+                    
+                    # Get question/label text
+                    question = self._question_text(field)
+                    
+                    # Handle selects (standard HTML)
+                    if tag == "select":
+                        if self._fill_select(field, question):
+                            filled += 1
+                        continue
+                    
+                    # Handle custom dropdowns (div-based)
+                    if tag == "div" and ("select" in field.get_attribute("class") or 
+                                        field.get_attribute("role") in ["listbox", "combobox"]):
+                        if self._fill_custom_dropdown(field, question):
+                            filled += 1
+                        continue
+                    
+                    # Handle checkboxes (already handled above, but double-check)
+                    if field_type == "checkbox":
+                        if field.is_selected():
+                            continue
+                        answer = self.answers.answer(question, options=("Yes", "No"), context=self.context)
+                        required = field.get_attribute("required") is not None or field.get_attribute("aria-required") == "true"
+                        if required or answer.lower().startswith("yes"):
+                            safe_click(self.driver, field)
+                            filled += 1
+                        continue
+                    
+                    # Skip if already has value
+                    existing = field.get_attribute("value") if tag != "div" else field.text
+                    if existing and str(existing).strip():
+                        continue
+                    
+                    # Get answer from engine
+                    answer = self.answers.answer(question, context=self.context)
+                    
+                    # Validate numeric fields
+                    if field_type in {"number", "range"} and not answer.replace(".", "", 1).isdigit():
+                        answer = "0"
+                    
+                    # Validate email fields
+                    if field_type == "email" and "@" not in answer:
+                        fallback_email = os.getenv("CANDIDATE_EMAIL") or _nested_profile_value(self.profile, ("email",))
+                        if fallback_email:
+                            answer = fallback_email
+                    
+                    # Clear and type
+                    try:
+                        field.clear()
+                    except Exception:
+                        field.send_keys(Keys.CONTROL, "a")
+                    
+                    human_type(field, answer, self.slow_mo)
+                    human_delay(self.slow_mo, 0.3)
+                    filled += 1
+                    
+                except (ElementNotInteractableException, StaleElementReferenceException):
+                    continue
+                except Exception:
+                    continue
+        
         return filled

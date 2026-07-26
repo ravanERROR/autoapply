@@ -99,7 +99,8 @@ if not errorlevel 1 (
     echo [WARNING] Port 3001 is already in use. Attempting to start anyway...
 )
 
-start "JobApply Backend" cmd /k "cd backend && echo Starting backend... && npm run dev"
+ver >nul
+start "JobApply Backend" cmd /k "echo Starting backend... && npm run dev"
 if !errorlevel! neq 0 (
     echo [ERROR] Failed to start backend server.
     cd ..
@@ -133,7 +134,8 @@ if not errorlevel 1 (
     echo [WARNING] Port 5173 is already in use. Attempting to start anyway...
 )
 
-start "JobApply Frontend" cmd /k "cd frontend && echo Starting frontend... && npm run dev"
+ver >nul
+start "JobApply Frontend" cmd /k "echo Starting frontend... && npm run dev"
 if !errorlevel! neq 0 (
     echo [ERROR] Failed to start frontend.
     cd ..
@@ -152,10 +154,14 @@ cd bots
 
 :: Check requirements.txt
 if not exist "requirements.txt" (
-    echo [ERROR] requirements.txt not found in bots directory.
-    cd ..
-    pause
-    exit /b 1
+    if exist "..\requirements.txt" (
+        copy "..\requirements.txt" "requirements.txt" >nul
+    ) else (
+        echo [ERROR] requirements.txt not found in bots directory.
+        cd ..
+        pause
+        exit /b 1
+    )
 )
 
 :: Create virtual environment if it doesn't exist
@@ -198,7 +204,8 @@ if !errorlevel! neq 0 (
     )
 )
 
-start "JobApply Bots" cmd /k "cd bots && call venv\Scripts\activate.bat && echo Starting bot orchestrator... && python main.py"
+ver >nul
+start "JobApply Bots" cmd /k "call venv\Scripts\activate.bat && echo Starting bot orchestrator... && python main.py --platform all"
 if !errorlevel! neq 0 (
     echo [ERROR] Failed to start bot orchestrator.
     cd ..

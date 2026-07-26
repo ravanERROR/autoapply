@@ -189,3 +189,6 @@ yarn.lock
 pnpm-lock.yaml
 Pipfile.lock
 poetry.lock
+__pycache__/
+*.py[cod]
+logs/

@@ -1,0 +1,12 @@
+{
+  "name": "glassdoor_default",
+  "platform": "glassdoor",
+  "domain": "www.glassdoor.co.in",
+  "keywords": ["software engineer", "software developer", "backend engineer"],
+  "locations": ["India", "Remote"],
+  "experienceMin": 0,
+  "experienceMax": 10,
+  "postedWithinDays": 7,
+  "easyApplyOnly": true,
+  "excludeKeywords": ["unpaid", "internship", "intern", "volunteer"]
+}

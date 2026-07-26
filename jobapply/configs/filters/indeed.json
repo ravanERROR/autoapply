@@ -1,0 +1,12 @@
+{
+  "name": "indeed_default",
+  "platform": "indeed",
+  "domain": "in.indeed.com",
+  "keywords": ["software engineer", "software developer", "full stack developer"],
+  "locations": ["India", "Remote"],
+  "experienceMin": 0,
+  "experienceMax": 10,
+  "postedWithinDays": 7,
+  "easyApplyOnly": true,
+  "excludeKeywords": ["unpaid", "internship", "intern", "volunteer"]
+}

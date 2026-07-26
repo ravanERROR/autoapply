@@ -1,0 +1,25 @@
+{
+  "name": "jobapply",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev": "concurrently \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "npm --prefix backend run build",
+    "build:frontend": "npm --prefix frontend run build",
+    "start": "npm --prefix backend run start",
+    "install:frontend": "npm --prefix frontend install",
+    "install:backend": "npm --prefix backend install",
+    "lint": "npm --prefix frontend exec tsc -- --noEmit",
+    "bot:naukri": "cd bots && python naukri_bot.py",
+    "bot:linkedin": "cd bots && python linkedin_bot.py",
+    "bot:multi": "cd bots && python orchestrator.py --platform all",
+    "gemini:test": "cd gemini && python gemini_api.py"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

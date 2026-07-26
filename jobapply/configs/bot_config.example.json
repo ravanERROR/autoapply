@@ -1,0 +1,14 @@
+{
+  "platform": "linkedin",
+  "filters": [],
+  "headless": false,
+  "slowMo": 250,
+  "maxApplications": 25,
+  "maxPages": 3,
+  "profilePath": "configs/profile.json",
+  "browser": {
+    "userDataDir": "configs/chrome-profile",
+    "profileDirectory": "Default",
+    "pageLoadTimeout": 60
+  }
+}

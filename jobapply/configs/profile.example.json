@@ -1,0 +1,23 @@
+{
+  "firstName": "Sample",
+  "lastName": "Candidate",
+  "fullName": "Sample Candidate",
+  "email": "candidate@example.com",
+  "phone": "+10000000000",
+  "location": "Remote",
+  "yearsOfExperience": "3",
+  "expectedSalary": "0",
+  "noticePeriod": "Immediately",
+  "workAuthorized": "Yes",
+  "requireSponsorship": "No",
+  "willingToRelocate": "Yes",
+  "linkedinUrl": "https://www.linkedin.com/in/sample-candidate",
+  "githubUrl": "https://github.com/sample-candidate",
+  "portfolio": "https://example.com",
+  "resumePath": "resumes/resume.pdf",
+  "defaultAnswer": "Not applicable",
+  "savedAnswers": {
+    "preferred work arrangement": "Remote",
+    "notice period": "Immediately"
+  }
+}

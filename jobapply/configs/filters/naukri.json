@@ -1,0 +1,11 @@
+{
+  "name": "naukri_default",
+  "platform": "naukri",
+  "keywords": ["software engineer", "java developer", "full stack developer"],
+  "locations": [ "Remote"],
+  "experienceMin": 3,
+  "experienceMax": 5,
+  "postedWithinDays": 7,
+  "easyApplyOnly": true,
+  "excludeKeywords": ["unpaid", "internship", "non-technical", "walk-in"]
+}

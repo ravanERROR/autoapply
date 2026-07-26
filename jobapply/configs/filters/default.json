@@ -1,0 +1,24 @@
+{
+  "name": "default",
+  "keywords": ["software engineer", "software developer"],
+  "locations": ["Remote"],
+  "experienceMin": 0,
+  "experienceMax": 10,
+  "postedWithinDays": 7,
+  "easyApplyOnly": true,
+  "remoteOnly": false,
+  "strictKeywordMatch": false,
+  "maxPages": 3,
+  "maxFormSteps": 15,
+  "excludeKeywords": ["internship", "intern", "unpaid", "volunteer"],
+  "defaultAnswers": {
+    "experienceYears": "0",
+    "salary": "0",
+    "noticePeriod": "Immediately",
+    "workAuthorized": "Yes",
+    "requiresSponsorship": "No",
+    "willingToRelocate": "Yes",
+    "yesNo": "Yes",
+    "unknown": "Not applicable"
+  }
+}

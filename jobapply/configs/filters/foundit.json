@@ -1,0 +1,12 @@
+{
+  "name": "foundit_default",
+  "platform": "foundit",
+  "keywords": ["software engineer", "python developer", "full stack developer"],
+  "locations": ["Bangalore", "Remote"],
+  "experienceMin": 0,
+  "experienceMax": 10,
+  "postedWithinDays": 7,
+  "timeFilter": 1,
+  "easyApplyOnly": true,
+  "excludeKeywords": ["unpaid", "internship", "non-technical", "walk-in"]
+}

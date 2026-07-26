@@ -67,15 +67,7 @@
         "use_AI": false,
         "llm_model": "gemini-2.5-flash",
         "_comment_api_keys": "Add multiple Gemini API keys. Bot will try key1 → key2 → key3 (2 full rounds) before giving up.",
-        "llm_api_keys": [
-            "AIzaSyBNNT0-gY-m_aPVvk41x6R365rOyqD0vCI",
-            "AIzaSyBeOwdhTHYaO34MPmgh2SdItoeS6RDHYB4",
-            "AIzaSyDvtNen5avrMff01nLrpijLiepXNqOCsLY",
-            "AIzaSyAk71QutkXim1zr9hYrCje_yBQPA3iK1NI",
-            "AIzaSyD3vmTu4kb48_eR-r4BEfxtC9_eC9QhJTE",
-            "AIzaSyCVzZiwRIb8C1cD64NJ30ciUXNmXbGzCRs",
-            "AIzaSyBCf1K1HSN4z613imSqF3Illjj9VLXPqBo"
-        ],
+        "llm_api_keys": [],
         "ai_provider": "gemini",
         "_comment_ai_provider": "Choose AI provider: 'gemini' or 'antigravity'. When using 'antigravity', llm_api_keys are not required.",
         "antigravity_model": "auto",

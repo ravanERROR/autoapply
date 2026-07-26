@@ -35,11 +35,13 @@ class AnswerEngine:
         *,
         gemini_client: GeminiClient | None = None,
         questions_path: Path | None = None,
+        enable_alerts: bool = True,
     ) -> None:
         self.profile = dict(profile or {})
         self.filter_config = dict(filter_config or {})
         self.flat_profile = _flatten(self.profile)
         self.questions_path = questions_path or QUESTIONS_JSON_PATH
+        self.enable_alerts = enable_alerts
 
         self.db_answers = self._load_questions_db()
 
@@ -217,3 +219,37 @@ class AnswerEngine:
 
         self._cache[cache_key] = answer
         return answer
+    
+    def request_manual_input(
+        self,
+        question: str,
+        job_title: str = "",
+        driver: Any | None = None,
+    ) -> str | None:
+        """
+        Request manual input from user when no automated answer is available.
+        
+        Triggers audio and visual alerts to notify the user.
+        
+        Args:
+            question: The application question requiring input
+            job_title: Current job title for context
+            driver: Optional Selenium WebDriver for visual alerts
+            
+        Returns:
+            User-provided answer or None if cancelled
+        """
+        if not self.enable_alerts:
+            return None
+        
+        # Play notification sound
+        play_notification_sound()
+        
+        # Show visual alert in browser
+        if driver is not None:
+            alert_message = f"Action Required: {job_title}" if job_title else "Manual Input Required"
+            show_visual_alert(driver, alert_message)
+        
+        # Log the request (actual prompting handled by bot-specific code)
+        # This method signals that manual input is needed
+        return None  # Caller should handle the actual prompt

@@ -42,7 +42,10 @@ class BaseBot(ABC):
                 self.profile["email"] = candidate_email
         if not self.profile.get("phone") and os.getenv("CANDIDATE_PHONE", "").strip():
             self.profile["phone"] = os.getenv("CANDIDATE_PHONE", "").strip()
-        self.answers = AnswerEngine(self.profile, self.config.filters)
+        
+        # Check if alerts are enabled in config
+        enable_alerts = self.config.filters.get("enableAlerts", True)
+        self.answers = AnswerEngine(self.profile, self.config.filters, enable_alerts=enable_alerts)
         self.form_filler: FormFiller | None = None
         self.seen_jobs: set[str] = set()
 

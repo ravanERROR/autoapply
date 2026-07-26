@@ -1,21 +1,46 @@
 @echo off
 setlocal
 
-echo Starting JobApply services...
-
-start "JobApply Backend" cmd /c "cd /d D:\installed_softwares\naukri-cdp-apply\jobapply\backend && npx tsx watch src/server.ts"
-start "JobApply Frontend" cmd /c "cd /d D:\installed_softwares\naukri-cdp-apply\jobapply\frontend && npx vite --port 3000"
-
-echo.
-echo Backend:  http://localhost:5000
-echo Frontend: http://localhost:3000
-echo.
-echo Close this window to stop both services.
+echo ========================================
+echo   JobApply - Starting Services
+echo ========================================
 echo.
 
-timeout /t 3 >nul
-echo Checking services...
-curl -s http://localhost:5000/health >nul && echo [OK] Backend is running || echo [FAIL] Backend not reachable
-curl -s http://localhost:3000 >nul && echo [OK] Frontend is running || echo [FAIL] Frontend not reachable
+:: Check if Node.js is installed
+where node >nul 2>nul
+if %ERRORLEVEL% neq 0 (
+    echo [ERROR] Node.js is not installed. Please install Node.js first.
+    pause
+    exit /b 1
+)
 
-pause
+:: Check if Python is installed
+where python >nul 2>nul
+if %ERRORLEVEL% neq 0 (
+    echo [ERROR] Python is not installed. Please install Python first.
+    pause
+    exit /b 1
+)
+
+echo [1/3] Starting Backend Server...
+start "JobApply Backend" cmd /c "cd /d D:\installed_softwares\naukri-cdp-apply\jobapply\backend && npm run dev"
+
+timeout /t 3 /nobreak >nul
+
+echo [2/3] Starting Frontend...
+start "JobApply Frontend" cmd /c "cd /d D:\installed_softwares\naukri-cdp-apply\jobapply\frontend && npm run dev"
+
+timeout /t 3 /nobreak >nul
+
+echo [3/3] Starting Bot Orchestrator...
+start "JobApply Bots" cmd /c "cd /d D:\installed_softwares\naukri-cdp-apply\jobapply\bots && if exist venv (venv\Scripts\activate.bat) else (python -m venv venv && venv\Scripts\activate.bat && pip install -r requirements.txt) && python main.py"
+
+echo.
+echo ========================================
+echo   All services starting...
+echo   Frontend: http://localhost:5173
+echo   Backend:  http://localhost:3001
+echo ========================================
+echo.
+echo Press any key to exit this window...
+pause >nul

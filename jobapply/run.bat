@@ -1,46 +1,233 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
-echo ========================================
-echo   JobApply - Starting Services
-echo ========================================
+title JobApply Auto-Start
+color 0A
+
+echo ==========================================
+echo   JobApply - Automated Job Application
+echo   Starting Services...
+echo ==========================================
 echo.
 
-:: Check if Node.js is installed
+:: Check if running from correct directory
+if not exist "backend\package.json" (
+    echo [ERROR] Please run this script from the project root directory.
+    echo Current directory: %CD%
+    echo.
+    echo Expected structure:
+    echo   - backend\package.json
+    echo   - frontend\package.json
+    echo   - bots\requirements.txt
+    pause
+    exit /b 1
+)
+
+:: Check Node.js
 where node >nul 2>nul
-if %ERRORLEVEL% neq 0 (
-    echo [ERROR] Node.js is not installed. Please install Node.js first.
+if %errorlevel% neq 0 (
+    echo [ERROR] Node.js is not installed or not in PATH.
+    echo Please install Node.js from https://nodejs.org/
     pause
     exit /b 1
 )
 
-:: Check if Python is installed
+:: Check npm
+where npm >nul 2>nul
+if %errorlevel% neq 0 (
+    echo [ERROR] npm is not installed.
+    echo Please reinstall Node.js.
+    pause
+    exit /b 1
+)
+
+:: Check Python
 where python >nul 2>nul
-if %ERRORLEVEL% neq 0 (
-    echo [ERROR] Python is not installed. Please install Python first.
+if %errorlevel% neq 0 (
+    echo [ERROR] Python is not installed or not in PATH.
+    echo Please install Python from https://python.org/
+    echo Make sure to check "Add Python to PATH" during installation.
     pause
     exit /b 1
 )
 
-echo [1/3] Starting Backend Server...
-start "JobApply Backend" cmd /c "cd /d D:\installed_softwares\naukri-cdp-apply\jobapply\backend && npm run dev"
+:: Check Python version
+python --version >nul 2>nul
+if %errorlevel% neq 0 (
+    echo [ERROR] Python command failed.
+    pause
+    exit /b 1
+)
 
-timeout /t 3 /nobreak >nul
-
-echo [2/3] Starting Frontend...
-start "JobApply Frontend" cmd /c "cd /d D:\installed_softwares\naukri-cdp-apply\jobapply\frontend && npm run dev"
-
-timeout /t 3 /nobreak >nul
-
-echo [3/3] Starting Bot Orchestrator...
-start "JobApply Bots" cmd /c "cd /d D:\installed_softwares\naukri-cdp-apply\jobapply\bots && if exist venv (venv\Scripts\activate.bat) else (python -m venv venv && venv\Scripts\activate.bat && pip install -r requirements.txt) && python main.py"
-
+echo [OK] All prerequisites found.
 echo.
-echo ========================================
-echo   All services starting...
-echo   Frontend: http://localhost:5173
+
+:: Create logs directory
+if not exist "logs" mkdir logs
+
+:: ==========================================
+:: Start Backend
+:: ==========================================
+echo [INFO] Starting Backend Server...
+cd backend
+
+if not exist "node_modules" (
+    echo [INFO] Installing backend dependencies...
+    call npm install
+    if !errorlevel! neq 0 (
+        echo [ERROR] Failed to install backend dependencies.
+        cd ..
+        pause
+        exit /b 1
+    )
+)
+
+if not exist ".env" (
+    if exist ".env.example" (
+        echo [INFO] Creating .env from .env.example...
+        copy .env.example .env >nul
+    ) else (
+        echo [WARNING] No .env or .env.example found. Creating default .env...
+        echo PORT=3001> .env
+        echo HOST=localhost>> .env
+    )
+)
+
+:: Check if port 3001 is already in use
+netstat -ano | findstr ":3001" >nul
+if not errorlevel 1 (
+    echo [WARNING] Port 3001 is already in use. Attempting to start anyway...
+)
+
+start "JobApply Backend" cmd /k "cd backend && echo Starting backend... && npm run dev"
+if !errorlevel! neq 0 (
+    echo [ERROR] Failed to start backend server.
+    cd ..
+    pause
+    exit /b 1
+)
+cd ..
+echo [OK] Backend started in new window.
+timeout /t 3 /nobreak >nul
+
+:: ==========================================
+:: Start Frontend
+:: ==========================================
+echo [INFO] Starting Frontend...
+cd frontend
+
+if not exist "node_modules" (
+    echo [INFO] Installing frontend dependencies...
+    call npm install
+    if !errorlevel! neq 0 (
+        echo [ERROR] Failed to install frontend dependencies.
+        cd ..
+        pause
+        exit /b 1
+    )
+)
+
+:: Check if port 5173 is already in use
+netstat -ano | findstr ":5173" >nul
+if not errorlevel 1 (
+    echo [WARNING] Port 5173 is already in use. Attempting to start anyway...
+)
+
+start "JobApply Frontend" cmd /k "cd frontend && echo Starting frontend... && npm run dev"
+if !errorlevel! neq 0 (
+    echo [ERROR] Failed to start frontend.
+    cd ..
+    pause
+    exit /b 1
+)
+cd ..
+echo [OK] Frontend started in new window.
+timeout /t 3 /nobreak >nul
+
+:: ==========================================
+:: Start Bots
+:: ==========================================
+echo [INFO] Starting Bot Orchestrator...
+cd bots
+
+:: Check requirements.txt
+if not exist "requirements.txt" (
+    echo [ERROR] requirements.txt not found in bots directory.
+    cd ..
+    pause
+    exit /b 1
+)
+
+:: Create virtual environment if it doesn't exist
+if not exist "venv" (
+    echo [INFO] Creating Python virtual environment...
+    python -m venv venv
+    if !errorlevel! neq 0 (
+        echo [ERROR] Failed to create virtual environment.
+        echo Try running: python -m venv venv manually
+        cd ..
+        pause
+        exit /b 1
+    )
+)
+
+:: Activate virtual environment and install dependencies
+echo [INFO] Activating virtual environment...
+call venv\Scripts\activate.bat
+if !errorlevel! neq 0 (
+    echo [ERROR] Failed to activate virtual environment.
+    cd ..
+    pause
+    exit /b 1
+)
+
+echo [INFO] Installing Python dependencies...
+pip install -r requirements.txt --quiet
+if !errorlevel! neq 0 (
+    echo [WARNING] Some Python packages may have failed to install.
+    echo Continuing anyway...
+)
+
+:: Check for Chrome/Chromium
+where chrome >nul 2>nul
+if !errorlevel! neq 0 (
+    where chromium >nul 2>nul
+    if !errorlevel! neq 0 (
+        echo [WARNING] Google Chrome not found. Bots may fail.
+        echo Please install Google Chrome.
+    )
+)
+
+start "JobApply Bots" cmd /k "cd bots && call venv\Scripts\activate.bat && echo Starting bot orchestrator... && python main.py"
+if !errorlevel! neq 0 (
+    echo [ERROR] Failed to start bot orchestrator.
+    cd ..
+    pause
+    exit /b 1
+)
+cd ..
+echo [OK] Bots started in new window.
+
+:: ==========================================
+:: Final Status
+:: ==========================================
+echo.
+echo ==========================================
+echo   All services started successfully!
+echo ==========================================
+echo.
 echo   Backend:  http://localhost:3001
-echo ========================================
+echo   Frontend: http://localhost:5173
+echo   Bots:     Running in background
 echo.
-echo Press any key to exit this window...
-pause >nul
+echo   Open your browser to: http://localhost:5173
+echo.
+echo   To stop services, close the three new windows.
+echo ==========================================
+echo.
+
+:: Wait a moment then open browser
+timeout /t 5 /nobreak >nul
+start http://localhost:5173
+
+exit /b 0

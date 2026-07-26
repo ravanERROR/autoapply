@@ -13,6 +13,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
 from .answers import AnswerEngine
+from .alerts import play_notification_sound, show_visual_alert
 from .delays import human_delay, human_type
 from .paths import APP_ROOT, resolve_app_path
 from .selectors import (

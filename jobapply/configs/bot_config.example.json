@@ -6,6 +6,8 @@
   "maxApplications": 25,
   "maxPages": 3,
   "profilePath": "configs/profile.json",
+  "enableAlerts": true,
+  "notificationSound": "notify/job.mp3",
   "browser": {
     "userDataDir": "configs/chrome-profile",
     "profileDirectory": "Default",

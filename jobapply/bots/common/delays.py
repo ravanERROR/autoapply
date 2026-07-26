@@ -19,7 +19,11 @@ def human_type(element: Any, text: object, slow_mo: int) -> None:
     value = str(text)
     if slow_mo > 0:
         time.sleep(random.uniform(0.1, min(0.5, max(0.2, slow_mo / 2000.0))))
-    element.send_keys(value)
+    # Type character by character to avoid issues with special characters like #
+    for char in value:
+        element.send_keys(char)
+        if slow_mo > 0:
+            time.sleep(random.uniform(0.02, 0.08))
     actual = (element.get_attribute("value") or "").strip()
     if actual != value:
         driver = getattr(element, "_parent", None)

@@ -1,0 +1,92 @@
+{
+    "naukri": {
+        "username": "pavanwakade33@gmail.com",
+        "password": "Pavan#884455"
+    },
+    "personal": {
+        "first_name": "Pavan",
+        "middle_name": "Govind",
+        "last_name": "Wakade",
+        "phone_number": "8802896767",
+        "current_city": "Pune",
+        "experience_years": 4,
+        "desired_salary": 1400000,
+        "notice_period_days": 21,
+        "resume_path": "all resumes/PAVAN_WAKADE_4+.pdf"
+    },
+    "filters": {
+        "search_terms": [
+            "Java Full Stack Developer",
+            "Senior Java Full Stack Developer",
+            "Java Developer",
+            "Senior Java Developer",
+            "Spring Boot Developer",
+            "Java Microservices Developer",
+            "Backend Developer",
+            "Java Backend Developer",
+            "Software Engineer",
+            "Senior Software Engineer",
+            "Full Stack Developer",
+            "Java Angular Developer"
+        ],
+        "search_location": "",
+        "_comment_on_site": "Options: Remote | Hybrid | Work from office",
+        "on_site": [
+            "Remote"
+        ],
+        "_comment_location": "experience:",
+        "easy_apply": true,
+        "_comment_location": "Naukri belly filter cities visible by default: Bengaluru, Hyderabad, Pune, Chennai, Mumbai, Delhi",
+        "location": [],
+        "_comment_job_type": "Naukri does not show a Job Type sidebar filter for most searches — leave empty",
+        "job_type": [],
+        "_comment_salary": "Options: 0-3 Lakhs | 3-6 Lakhs | 6-10 Lakhs | 10-15 Lakhs | 15-25 Lakhs | 25-50 Lakhs | 50-75 Lakhs | 75-100 Lakhs",
+        "salary": [],
+        "_comment_freshness": "Options: Last 1 day | Last 3 days | Last 7 days | Last 15 days | Last 30 days",
+        "freshness": "",
+        "_comment_department": "Examples: Engineering - Software & QA | IT & Information Security | Consulting | Other",
+        "department": [],
+        "_comment_company_type": "Options: Foreign MNC | Indian MNC | Corporate | Startup",
+        "company_type": [],
+        "_comment_role_category": "Examples: Software Development | IT Services | DevOps | QA",
+        "role_category": [],
+        "_comment_education": "Examples: B.Tech/B.E. | MCA | M.Tech | MBA",
+        "education": [],
+        "_comment_posted_by": "Options: Company | Consultant/Staffing",
+        "posted_by": [],
+        "_comment_industry": "Examples: IT Services & Consulting | Financial Services | Retail",
+        "industry": [],
+        "_comment_top_companies": "Examples: TCS | Infosys | Wipro | HCL Technologies",
+        "top_companies": []
+    },
+    "chrome": {
+        "stealth_mode": true,
+        "headless": false
+    },
+    "ai": {
+        "use_AI": false,
+        "llm_model": "gemini-2.5-flash",
+        "_comment_api_keys": "Add multiple Gemini API keys. Bot will try key1 → key2 → key3 (2 full rounds) before giving up.",
+        "llm_api_keys": [
+            "AIzaSyBNNT0-gY-m_aPVvk41x6R365rOyqD0vCI",
+            "AIzaSyBeOwdhTHYaO34MPmgh2SdItoeS6RDHYB4",
+            "AIzaSyDvtNen5avrMff01nLrpijLiepXNqOCsLY",
+            "AIzaSyAk71QutkXim1zr9hYrCje_yBQPA3iK1NI",
+            "AIzaSyD3vmTu4kb48_eR-r4BEfxtC9_eC9QhJTE",
+            "AIzaSyCVzZiwRIb8C1cD64NJ30ciUXNmXbGzCRs",
+            "AIzaSyBCf1K1HSN4z613imSqF3Illjj9VLXPqBo"
+        ],
+        "ai_provider": "gemini",
+        "_comment_ai_provider": "Choose AI provider: 'gemini' or 'antigravity'. When using 'antigravity', llm_api_keys are not required.",
+        "antigravity_model": "auto",
+        "antigravity_session_id": null
+    },
+    "bot": {
+        "non_interactive": false,
+        "question_notification_sound": "d:\\installed_softwares\\naukri-cdp-apply\\Auto_job_applier_linkedIn\\Linkedin\\optimized_Naukari\\notify\\job.mp3",
+        "external_apply_enabled": false,
+        "external_auto_submit": false,
+        "external_wait_seconds": 20,
+        "external_max_steps": 10
+    }
+}

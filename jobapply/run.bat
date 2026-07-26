@@ -1,5 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
+cd /d "%~dp0"
 
 title JobApply Auto-Start
 color 0A
@@ -145,6 +146,22 @@ if !errorlevel! neq 0 (
 cd ..
 echo [OK] Frontend started in new window.
 timeout /t 3 /nobreak >nul
+
+:: ==========================================
+:: Start Free Models Gateway API
+:: ==========================================
+if exist "free-models-gateway\package.json" (
+    echo [INFO] Starting Free Models Gateway API...
+    cd free-models-gateway
+    if not exist "node_modules" (
+        echo [INFO] Installing Free Models Gateway dependencies...
+        call npm install
+    )
+    start "Free Models Gateway API" cmd /k "echo Starting Free Models Gateway API on http://127.0.0.1:8787/v1... && npm start"
+    cd ..
+    echo [OK] Free Models Gateway started on http://127.0.0.1:8787/v1
+    timeout /t 2 /nobreak >nul
+)
 
 :: ==========================================
 :: Start Bots

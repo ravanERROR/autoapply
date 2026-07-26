@@ -1,4 +1,4 @@
-"""Small Gemini REST client whose failures are always represented by ``None``."""
+"""AI REST client supporting Free Models Gateway (http://127.0.0.1:8787/v1) and Google Gemini API."""
 
 from __future__ import annotations
 
@@ -16,7 +16,8 @@ from dotenv import load_dotenv
 APP_ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(APP_ROOT / ".env", override=False)
 
-DEFAULT_MODEL = "gemini-2.0-flash"
+DEFAULT_MODEL = "auto-route"
+DEFAULT_GATEWAY_URL = "http://127.0.0.1:8787/v1"
 _UNSAFE_OUTPUT = re.compile(
     r"\b(sorry|apolog(?:y|ize|ise)|error|request failed|unable to|cannot (?:answer|help)|could(?: not|n't) process)\b",
     re.IGNORECASE,
@@ -29,11 +30,69 @@ def is_safe_form_answer(value: str | None) -> bool:
     return not _UNSAFE_OUTPUT.search(value.strip())
 
 
+class FreeModelsGatewayClient:
+    def __init__(
+        self,
+        base_url: str | None = None,
+        *,
+        model: str | None = None,
+        timeout: float = 30,
+        session: requests.Session | None = None,
+    ) -> None:
+        raw_url = base_url or os.getenv("FREE_MODELS_GATEWAY_URL") or DEFAULT_GATEWAY_URL
+        self.base_url = raw_url.rstrip("/")
+        self.model = (model or os.getenv("FREE_MODELS_MODEL") or DEFAULT_MODEL).strip()
+        self.timeout = timeout
+        self.session = session or requests.Session()
+
+    def _failure(self, code: str, detail: str) -> None:
+        event = {"component": "free-models-gateway", "status": "failed", "code": code, "detail": detail[:500]}
+        print(json.dumps(event, ensure_ascii=False), file=sys.stderr, flush=True)
+
+    def generate_content(self, prompt: str, *, max_tokens: int = 256, temperature: float = 0.2) -> str | None:
+        url = f"{self.base_url}/chat/completions"
+        payload = {
+            "model": self.model,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+        }
+        try:
+            response = self.session.post(
+                url,
+                headers={"Content-Type": "application/json"},
+                json=payload,
+                timeout=self.timeout,
+            )
+            response.raise_for_status()
+            data = response.json()
+        except requests.RequestException as error:
+            self._failure("request_error", str(error))
+            return None
+        except (ValueError, TypeError) as error:
+            self._failure("invalid_json", str(error))
+            return None
+
+        try:
+            content = data["choices"][0]["message"]["content"]
+            text = str(content).strip()
+        except (KeyError, IndexError, TypeError, AttributeError) as error:
+            self._failure("invalid_response", str(error))
+            return None
+
+        cleaned = GeminiClient._clean_answer(text)
+        if not is_safe_form_answer(cleaned):
+            self._failure("unsafe_or_empty_answer", "Gateway model returned no usable form value")
+            return None
+        return cleaned
+
+
 class GeminiClient:
     def __init__(
         self,
         api_key: str | None = None,
         *,
+        gateway_url: str | None = None,
         model: str | None = None,
         timeout: float = 30,
         session: requests.Session | None = None,
@@ -45,13 +104,16 @@ class GeminiClient:
             "changeme",
             "replace_me",
         } else configured_key
-        self.model = (model or os.getenv("GEMINI_MODEL") or DEFAULT_MODEL).strip()
+        self.gateway_url = (gateway_url or os.getenv("FREE_MODELS_GATEWAY_URL") or DEFAULT_GATEWAY_URL).rstrip("/")
+        self.model = (model or os.getenv("FREE_MODELS_MODEL") or os.getenv("GEMINI_MODEL") or DEFAULT_MODEL).strip()
         self.timeout = timeout
         self.session = session or requests.Session()
+        self.gateway = FreeModelsGatewayClient(base_url=self.gateway_url, model=self.model, timeout=self.timeout, session=self.session)
 
     @property
     def enabled(self) -> bool:
-        return bool(self.api_key)
+        # Client is enabled if Free Models Gateway URL is configured OR if a Gemini key is present.
+        return bool(self.gateway_url) or bool(self.api_key)
 
     def _failure(self, code: str, detail: str) -> None:
         event = {"component": "gemini", "status": "failed", "code": code, "detail": detail[:500]}
@@ -60,7 +122,19 @@ class GeminiClient:
     def generate_content(self, prompt: str, *, max_tokens: int = 256, temperature: float = 0.2) -> str | None:
         if not self.enabled:
             return None
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent"
+
+        # 1. First attempt: Free Models Gateway API (http://127.0.0.1:8787/v1)
+        if self.gateway_url:
+            gateway_res = self.gateway.generate_content(prompt, max_tokens=max_tokens, temperature=temperature)
+            if gateway_res:
+                return gateway_res
+
+        # 2. Fallback: Google Gemini API (if api_key configured)
+        if not self.api_key:
+            return None
+
+        gemini_model = "gemini-2.0-flash" if self.model == "auto-route" else self.model
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{gemini_model}:generateContent"
         payload = {
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"maxOutputTokens": max_tokens, "temperature": temperature},
@@ -88,6 +162,7 @@ class GeminiClient:
         except (KeyError, IndexError, TypeError, AttributeError) as error:
             self._failure("invalid_response", str(error))
             return None
+
         cleaned = self._clean_answer(text)
         if not is_safe_form_answer(cleaned):
             self._failure("unsafe_or_empty_answer", "Model returned no usable form value")
@@ -144,4 +219,4 @@ def fill_form_field(field_html: str, form_context: str) -> str | None:
 
 
 if __name__ == "__main__":
-    print(generate_content("Return only: JobApply Gemini integration works"))
+    print(generate_content("Return only: JobApply Free Models Gateway integration works"))

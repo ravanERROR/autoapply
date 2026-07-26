@@ -2,10 +2,16 @@
 
 from __future__ import annotations
 
+import json
 import re
+from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from gemini.gemini_api import GeminiClient, is_safe_form_answer
+from .paths import APP_ROOT
+
+
+QUESTIONS_JSON_PATH = APP_ROOT / "configs" / "questions.json"
 
 
 def _flatten(value: Mapping[str, Any], prefix: str = "") -> dict[str, Any]:
@@ -28,15 +34,20 @@ class AnswerEngine:
         filter_config: Mapping[str, Any] | None,
         *,
         gemini_client: GeminiClient | None = None,
+        questions_path: Path | None = None,
     ) -> None:
         self.profile = dict(profile or {})
         self.filter_config = dict(filter_config or {})
         self.flat_profile = _flatten(self.profile)
+        self.questions_path = questions_path or QUESTIONS_JSON_PATH
+
+        self.db_answers = self._load_questions_db()
+
         saved = self.filter_config.get("savedAnswers", {})
         profile_saved = self.profile.get("savedAnswers", {})
         self.saved_answers = {
             str(key).lower(): value
-            for source in (saved, profile_saved)
+            for source in (self.db_answers, saved, profile_saved)
             if isinstance(source, Mapping)
             for key, value in source.items()
         }
@@ -44,6 +55,36 @@ class AnswerEngine:
         self.defaults = dict(defaults) if isinstance(defaults, Mapping) else {}
         self.gemini = gemini_client or GeminiClient()
         self._cache: dict[tuple[str, tuple[str, ...]], str] = {}
+
+    def _load_questions_db(self) -> dict[str, str]:
+        """Load persistent Q&A database from configs/questions.json."""
+        if not self.questions_path.is_file():
+            return {}
+        try:
+            content = self.questions_path.read_text(encoding="utf-8")
+            data = json.loads(content)
+            if isinstance(data, dict):
+                return {str(k): str(v) for k, v in data.items() if v is not None}
+        except Exception:
+            pass
+        return {}
+
+    def _save_question_answer(self, question: str, answer: str) -> None:
+        """Persist a newly answered Q&A pair into configs/questions.json."""
+        if not question or not answer or answer.lower() in ("not applicable", "ask user", ""):
+            return
+        clean_q = " ".join(question.strip().split())
+        clean_a = str(answer).strip()
+
+        try:
+            self.questions_path.parent.mkdir(parents=True, exist_ok=True)
+            data = self._load_questions_db()
+            data[clean_q] = clean_a
+            self.questions_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            self.db_answers[clean_q] = clean_a
+            self.saved_answers[clean_q.lower()] = clean_a
+        except Exception:
+            pass
 
     def _profile_value(self, *keys: str) -> str | None:
         for key in keys:
@@ -57,10 +98,21 @@ class AnswerEngine:
 
     def _known_answer(self, question: str) -> tuple[bool, str]:
         q = " ".join(question.lower().split())
+
+        # 1. Exact or normalized match in persistent questions database
+        db_data = self._load_questions_db()
+        if question.strip() in db_data:
+            return True, str(db_data[question.strip()])
+        for k, v in db_data.items():
+            if " ".join(k.lower().split()) == q:
+                return True, str(v)
+
+        # 2. Check keyword in saved_answers
         for keyword, answer in self.saved_answers.items():
             if keyword in q:
                 return True, str(answer)
 
+        # 3. Rule-based mappings from profile
         rules: list[tuple[tuple[str, ...], tuple[str, ...], str]] = [
             (("email", "e-mail"), ("email",), ""),
             (("phone", "mobile", "contact number"), ("phone", "mobile"), ""),
@@ -91,10 +143,6 @@ class AnswerEngine:
         for phrases, profile_keys, default in rules:
             if any(phrase in q for phrase in phrases):
                 value = self._profile_value(*profile_keys) or default
-                # The question category is known even when the candidate has not
-                # configured that value. This prevents Gemini from inventing
-                # common identity/profile data; the deterministic fallback below
-                # is used instead.
                 return True, value or ""
 
         if any(q.startswith(prefix) for prefix in ("are you", "do you", "have you", "can you", "will you", "would you")):
@@ -162,5 +210,10 @@ class AnswerEngine:
                 answer = non_disclosure or (usable[0] if usable else clean_options[0])
         if not is_safe_form_answer(answer):
             answer = "Not applicable"
+
+        # Persist newly resolved answer into configs/questions.json
+        if answer and answer.lower() not in ("not applicable", "ask user"):
+            self._save_question_answer(clean_question, answer)
+
         self._cache[cache_key] = answer
         return answer

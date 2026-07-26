@@ -6,6 +6,7 @@ import { FRONTEND_DIST, NODE_ENV } from './config.js';
 import { ensureApplicationsCsv } from './services/applicationsStore.js';
 import { applicationsRouter } from './routes/applications.js';
 import { filtersRouter } from './routes/filters.js';
+import { questionsRouter } from './routes/questions.js';
 import { botRouter } from './routes/bot.js';
 import { statusRouter } from './routes/status.js';
 import { setupLogging } from './middleware/logging.js';
@@ -25,8 +26,10 @@ export function createApp() {
 
   app.use('/api/applications', applicationsRouter);
   app.use('/api/filters', filtersRouter);
+  app.use('/api/questions', questionsRouter);
   app.use('/api/bot', botRouter);
   app.use('/api/status', statusRouter);
+
 
   const frontendIndex = path.join(FRONTEND_DIST, 'index.html');
   if (NODE_ENV === 'production' && fs.existsSync(frontendIndex)) {

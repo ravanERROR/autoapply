@@ -1,0 +1,20 @@
+{
+  "name": "free-models-gateway",
+  "version": "0.3.3",
+  "description": "A keyless OpenAI-compatible gateway for free OpenCode and Kilo models with privacy-protected Markdown memory.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "free-models": "./bin/free-models.js"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "models": "node bin/free-models.js models",
+    "chat": "node bin/free-models.js chat",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,290 @@
+timestamp,job_title,company,status,notes
+2026-06-23 10:38:23,Java Full stack developer,Hinduja Tech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 10:39:25,Java Full Stack Developer,Stack Digital,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 10:40:01,JAVA Full Stack Developer,Diverse Lynx,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 10:40:21,Java Full Stack Developer (React),LTM,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 10:40:41,Java Full Stack Developer (Angular),Infosys,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 10:42:06,Java Full Stack Developer,Buzzworks,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 10:47:32,Full Stack Developer,Calidig Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 10:53:30,Full Stack Developer,Calidig Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 10:57:15,Full Stack Developer,Calidig Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 10:57:36,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 10:57:45,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 10:59:28,Full Stack Developer,Calidig Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 10:59:49,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 10:59:58,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:00:07,CDGC Developer,Blue Rock Management India,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:02:00,Full Stack Developer,Calidig Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:02:20,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:02:39,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:02:57,CDGC Developer,Blue Rock Management India,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:04:06,Full Stack Developer,Calidig Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:04:27,Backend Systems Developer,Cogenthub,failed,"Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=149.0.7827.115); For documentation on this er"
+2026-06-23 11:06:48,Full Stack Developer,Calidig Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:07:09,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:07:18,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:15:31,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:15:42,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:16:09,IT Infrastructure Engineer - TN,Finacplus,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:16:29,Dotnet Developer (Windows & Web Applications),Enlightvision Technology,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:16:49,Game Designer,Gauravgo,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:17:09,Senior DevOps Engineer | Honeytech,Boosta,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:17:29,Consultant,Trigyn Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:17:49,Senior Data Engineer,Bradsol,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:18:42,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:18:51,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:19:00,CDGC Developer,Blue Rock Management India,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:20:41,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:20:51,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:21:02,CDGC Developer,Blue Rock Management India,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:23:21,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:40:00,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:40:11,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 11:40:39,IT Infrastructure Engineer - TN,Finacplus,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:40:59,Dotnet Developer (Windows & Web Applications),Enlightvision Technology,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 11:53:24,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 13:14:23,Backend Systems Developer,Cogenthub,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 13:14:44,Sap Hybris Developer,Bounteous x Accolite,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 13:15:04,CDGC Developer,Blue Rock Management India,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 13:15:24,IT Infrastructure Engineer - TN,Finacplus,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 13:35:40,Backend Systems Developer,Cogenthub,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 13:37:06,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 13:43:13,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 13:43:55,IT Infrastructure Engineer - TN,Finacplus,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 13:44:16,Dotnet Developer (Windows & Web Applications),Enlightvision Technology,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 13:44:36,Game Designer,Gauravgo,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 13:44:55,Senior DevOps Engineer | Honeytech,Boosta,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:15:07,Sap Hybris Developer,Bounteous x Accolite,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:15:55,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:16:21,CDGC Developer,Blue Rock Management India,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:26:51,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:27:13,CDGC Developer,Blue Rock Management India,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:27:31,"Survey Programmer / Senior Survey Programmer | Remote | Delhi, India",Talentra Global Group,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:28:31,IT Infrastructure Engineer - TN,Finacplus,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:28:51,Dotnet Developer (Windows & Web Applications),Enlightvision Technology,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:29:11,Game Designer,Gauravgo,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:29:31,Senior DevOps Engineer | Honeytech,Boosta,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:29:51,Consultant,Trigyn Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:32:13,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:32:33,CDGC Developer,Blue Rock Management India,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:34:39,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:34:55,CDGC Developer,Blue Rock Management India,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:35:09,"Survey Programmer / Senior Survey Programmer | Remote | Delhi, India",Talentra Global Group,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-23 14:35:24,IT Infrastructure Engineer - TN,Finacplus,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:35:43,Dotnet Developer (Windows & Web Applications),Enlightvision Technology,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:36:03,Game Designer,Gauravgo,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-23 14:37:28,CDGC Developer,Blue Rock Management India,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-24 11:59:40,Java Full Stack Developer,Vrinda International Noida,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:00:20,Blockchain Professional,Sparix Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:00:40,Full Stack Developer (Java + Angular),Mindwise Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:01:00,Sap Hybris Developer,Bounteous x Accolite,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-24 12:01:15,Node. Js Developer,Stackbox,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:01:35,Full-Stack Developer React / Node,Galaxywing It Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:01:55,Full Stack Developer,Fusiontecz,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:02:15,Sr. Software Engineer,Fundamento (formerly Skillr),failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:02:35,Web Developer,Techbinge India,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:02:55,Guideware Developer (8+yoe ),ANTI-Ai PRIVATE LIMITED,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:03:15,Senior Software Engineer,Zuddl,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:03:35,Senior Full Stack Engineer Financial Product (API To UI),Mirian AI,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-24 12:05:36,Java Developer,Tangoe,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-24 12:08:16,Software Craftsperson - ROR+ React,Incubyte Datatech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:08:36,Senior Software Developer / Full Stack Developer,Sadhana It Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:08:56,AI Backend Developer,Nitsan Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:09:16,Full Stack Developer,Inceptory Technology,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:09:36,Full Stack Developer,Drona Hq,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:09:56,Ruby on Rails Programmer,Avataa Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:10:27,Senior Full Stack Engineer Financial Product (API To UI),Mirian AI,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:10:47,Senior Software Engineer,Zuddl,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:11:07,Dot Net C# - Senior Software Developer,Route Mobile (RML),failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:11:27,"Senior Software Engineer, Full Stack",Mostudio,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:11:47,Senior Java Developer,Immersive Infotech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:12:07,Full Stack Developer,E Tech Software,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:12:26,Senior Java Developer,Harris Global Business Services,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:12:46,Senior Java Developer,Harris Healthcare,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:13:06,BPI Developer Sr Developer,Sparix Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:13:26,BPI Developer / Senior Developer,Sparix Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:13:46,Full Stack Developer - Grant Management Platform - Pan india,Social Alpha,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:14:06,SENIOR SOFTWARE ENGINEER WITH DATA BACKGROUND,Svitla Systems,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:14:26,Senior Full Stack Java Software Engineer,Global Business Ser 4u,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:15:05,Sr. Software Engineer,Fundamento (formerly Skillr),failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:15:25,Senior Software Developer / Full Stack Developer,Sadhana It Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:15:45,Java Developer(associate and senior Associate ),Insignia Consultancy Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:16:05,Senior AEM Developer,Bhasaka Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:16:24,Senior E Commerce Developer,"Kontoor Brands, Inc.",failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:16:44,Senior Software Engineer,Edifecs Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:17:16,Java Developer,Tangoe,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:17:36,Java Developer,MNJ Software,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:17:57,Java Developer,Ovitech Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:18:17,Java Developer,Crayontek,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:18:37,Java Developer,Weitglobal,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:18:57,Java Developer,Recruitly,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:19:17,Java Developer,Yellow Sapphire,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:19:37,Java Developer with AI Focus,Verdantis,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:19:56,Java Developers,JK Lucent,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:20:16,Mid Experience Java Developer,Crayontek,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:20:36,Java Developer,Irisidea,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:20:56,JAVA Developer,Citta Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:21:16,Java Developers,Sourcetrace Systems,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:21:36,Java Developer,Iris Info,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:21:56,Java Developer,NTK Creative Tech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:22:16,Java Developer,Gokool Software Labs,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:22:37,"Java + Selenium Developer, Pan India",Virtualware Innovations,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:22:57,Java Spark Developer,Overture Rede,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:23:17,Java Mirco Services Developer,Insignia Consultancy Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:23:37,Senior Java Developer,Immersive Infotech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:24:08,Senior Java Developer,Immersive Infotech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:24:28,Sr. Java Developer,MNJ Software,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:24:48,Java Developer(associate and senior Associate ),Insignia Consultancy Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:25:08,Senior Java Developer,Harris Global Business Services,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:25:28,Senior Java Developer,Harris Healthcare,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:25:48,Senior Java Developer,Innovya Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:26:09,Senior Java Developer,Virtualware Innovations,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:26:29,Senior Java Developer,Virtualware Innovations,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:26:49,senior Java developer,Green Clover,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:27:09,Senior Software Engineer,Zuddl,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:27:29,Senior Software Engineer,Edifecs Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:27:49,Sr. Software Engineer,Fundamento (formerly Skillr),failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:28:09,Software Engineer,Versante Software Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:28:46,Dot Net C# - Senior Software Developer,Route Mobile (RML),failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:29:06,"Senior Engineer, PHP Drupal",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:29:26,Senior Software Developer / Full Stack Developer,Sadhana It Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:29:46,Senior Software Developer,Sahajseva Digital Consultancy,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:30:06,Senior Software Developer Applications,Learntastic,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:30:27,Senior Software Developer Applications,Learntastic,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:30:57,Backend Developer (MERN | PostgreSQL),Stacklab,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:31:18,Backend Developer,Indium Corporation,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:31:38,"Associate Staff Engineer, Frontend AngularJS",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:31:58,"Associate Staff Engineer, Cloud",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:32:19,Java Full Stack Developer,Vrinda International Noida,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:32:39,Sr. Software Engineer,Fundamento (formerly Skillr),failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:32:59,"Associate Staff Engineer, Mobile Cross Platform",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:33:20,"Associate Staff Engineer, .Net Web",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:33:40,Senior Software Engineer,Zuddl,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:34:01,Associate Staff Engineer,Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:34:21,Embedded IoT Developer Fresher Experienced,ELK Education,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:34:41,Embedded IoT Developer Fresher Experienced,ELK Education,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:35:02,Software Developer,Fasyl Technology Group,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:35:22,"Associate Staff Engineer, Java Application Support",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:35:42,Senior Java Developer,Immersive Infotech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:36:03,"Associate Staff Engineer ,Fastapp Developer",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:36:23,Java Developer(associate and senior Associate ),Insignia Consultancy Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:36:43,App Developer,Techbinge India,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:37:03,SAP CPI Freelancer & Permanent professional,Spanbix Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:37:24,FullStack Engineer,Rocketdevs,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:37:55,"Java + Microservices Developers, Pan India",Virtualware Innovations,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:38:15,Java + Microservices Developers,Virtualware Innovations,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:38:36,Backend Developer (MERN | PostgreSQL),Stacklab,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:38:56,"Associate Staff Engineer, Frontend AngularJS",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:39:17,"Associate Staff Engineer, Cloud",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:39:37,"Associate Staff Engineer, Python",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:39:57,Wcs Developer,Moptra Infotech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:40:17,"Associate Staff Engineer, Mainframe",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:40:37,"Associate Staff Engineer, .Net Web",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:40:58,"Associate Staff Engineer, PHP Drupal",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:41:18,"Associate Staff Engineer, ERP",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:41:38,"Associate Staff Engineer, Sharepoint",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:41:59,"Associate Staff Engineer, PHP Magento",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:42:19,"Associate Staff Engineer, Frontend",Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:42:39,Senior Software Engineer,Zuddl,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:42:59,Associate Staff Engineer,Nagarro,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:43:19,Part-Time Node.js Developer with Java Experience,Modestack Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:43:40,Embedded IoT Developer Fresher Experienced,ELK Education,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:44:00,Embedded IoT Developer Fresher Experienced,ELK Education,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:44:20,Database & NoSQL Engineer,Octobit8,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:44:51,Backend Developer,Indium Corporation,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:45:11,Backend Developer,Junky Tech India,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:45:31,Backend Developer,Invoked Digital,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:45:52,AI Backend Developer,Nitsan Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:46:12,Backend Developer,Mobile Programming,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:46:32,Backend Developer,Spherecode,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:46:52,Backend Developer,Tab32,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:47:13,backend Developer,Sparix Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:47:33,Backend developer,Androcid,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:47:53,Backend Dotnet Developer,Sparix Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:48:14,Backend Developer (MERN | PostgreSQL),Stacklab,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:48:34,Senior SFMC Backend Developer,Sparix Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:48:54,Python Backend Developer,BSH Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 12:49:14,Backend Developer,Pocket Fm,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:08:15,Urgent Hiring: Java Full Stack Developer (Night Shift),Jade Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:08:35,GenAI Developer,HackerEarth,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:08:55,Full stack Architect(freelancer/consultant),Codevian Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:09:59,Java Full Stack Developer,Vrinda International Noida,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:10:19,MERN Stack Developer,TCM Stunner It Consultants,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:10:39,Blockchain Professional,Sparix Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:11:00,Full Stack Developer (Java + Angular),Mindwise Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:11:20,Full Stack Developer,E4 Software Services,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:11:40,Wcs Developer,Moptra Infotech,needs_manual_review,Chatbot flow stalled or needs manual attention.
+2026-06-24 19:13:04,Full-Stack Developer - Expression of Interest,Remotify,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:13:24,Node. Js Developer,Stackbox,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:13:45,Full Stack Developer,Xzect,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:14:04,Full-Stack Developer React / Node,Galaxywing It Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:14:25,Full Stack Developer,Fusiontecz,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:14:45,Sr. Software Engineer,Fundamento (formerly Skillr),failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:15:05,Web Developer,Techbinge India,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:15:25,Guideware Developer (8+yoe ),ANTI-Ai PRIVATE LIMITED,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:15:45,Senior Software Engineer,Zuddl,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:16:05,Software Craftsperson - ROR+ React,Incubyte Datatech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:16:26,Senior Software Developer / Full Stack Developer,Sadhana It Solutions,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:16:45,AI Backend Developer,Nitsan Technologies,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:17:05,Full Stack Developer,Inceptory Technology,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:17:26,Full Stack Web Developer,TCM Stunner It Consultants,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:17:58,Senior Software Engineer,Zuddl,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:18:18,Dot Net C# - Senior Software Developer,Route Mobile (RML),failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:18:39,"Senior Software Engineer, Full Stack",Mostudio,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:18:59,Senior Java Developer,Immersive Infotech,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:19:19,Full Stack Developer,E Tech Software,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:19:40,Senior Java Developer,Harris Global Business Services,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:20:00,Senior Java Developer,Harris Healthcare,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:20:21,BPI Developer Sr Developer,Sparix Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:20:41,BPI Developer / Senior Developer,Sparix Global,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:21:02,Full Stack Developer - Grant Management Platform - Pan india,Social Alpha,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:21:22,SENIOR SOFTWARE ENGINEER WITH DATA BACKGROUND,Svitla Systems,failed,"Apply button not found/clickable (selector may be stale, or job uses external apply)."
+2026-06-24 19:21:42,Senior Full Stack Java Software Engineer,Global Business Ser 4u,failed,"Message: target frame detached
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=149.0.7827.156)
+Stacktrace:
+	undetected_chromedriver!GetHandleV"
+2026-06-24 19:37:07,Java Full Stack Developer,Vrinda International Noida,failed,Neither native Apply nor 'Apply on company site' button found (selectors may be stale).
+2026-06-24 19:37:21,MERN Stack Developer,TCM Stunner It Consultants,skipped_login_required,Company site (https://tcmstunner.com/careers) requires account creation/login.
+2026-06-24 19:37:37,Blockchain Professional,Sparix Global,needs_manual_review,No fillable form fields detected on the page.
+2026-06-24 19:39:53,Full Stack Developer,E4 Software Services,needs_manual_review,No fillable form fields detected on the page.
+2026-06-24 19:40:09,Full-Stack Developer - Expression of Interest,Remotify,needs_manual_review,No fillable form fields detected on the page.
+2026-06-24 19:40:25,Node. Js Developer,Stackbox,needs_manual_review,No fillable form fields detected on the page.
+2026-06-24 19:44:01,Java Full Stack Developer,Vrinda International Noida,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-java-full-stack-developer-vrinda-international-remote-4-to-9-years-090626504653?src=directSearch&sid=17823104359605489&xp=1&px=1,
+2026-06-24 19:44:39,Full Stack Developer,Xzect,external_needs_manual_review,Could not find more fillable fields or next/submit buttons on external site.,https://www.naukri.com/job-listings-full-stack-developer-xzect-remote-0-to-5-years-240626505974?src=directSearch&sid=17823104359605489&xp=2&px=1,https://www.xzect.com/career
+2026-06-24 19:46:06,Full-Stack Developer React / Node,Galaxywing It Solutions,external_needs_manual_review,"External site requires login, OTP, captcha, or account verification.",https://www.naukri.com/job-listings-full-stack-developer-react-node-galaxywing-it-solutions-remote-3-to-8-years-160626504048?src=directSearch&sid=17823104359605489&xp=3&px=1,https://www.galaxywing.com/career/
+2026-06-24 19:57:56,Java Full Stack Developer,Vrinda International Noida,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-java-full-stack-developer-vrinda-international-remote-4-to-9-years-090626504653?src=directSearch&sid=17823112700602194&xp=1&px=1,
+2026-06-24 19:58:29,Full Stack Developer,Fusiontecz,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-full-stack-developer-fusiontecz-solutions-remote-2-to-6-years-090626501994?src=directSearch&sid=17823112700602194&xp=2&px=1,
+2026-06-24 19:59:04,Sr. Software Engineer,Fundamento (formerly Skillr),failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-sr-software-engineer-fundamento-formerly-skillr-remote-3-to-6-years-050626503980?src=directSearch&sid=17823112700602194&xp=3&px=1,
+2026-06-24 19:59:32,Web Developer,Techbinge India,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-web-developer-techbinge-india-pvt-ltd-remote-2-to-4-years-080626500396?src=directSearch&sid=17823112700602194&xp=4&px=1,
+2026-06-24 20:00:00,Guideware Developer (8+yoe ),ANTI-Ai PRIVATE LIMITED,external_filled_manual_submit,External form filled; final submit left for manual confirmation.,https://www.naukri.com/job-listings-guideware-developer-8-yoe-anti-ai-private-limited-remote-3-to-8-years-160626504063?src=directSearch&sid=17823112700602194&xp=5&px=1,https://www.antiai.ltd/apply/0956a5fa-1e40-463e-9de5-2ee85383c628
+2026-06-24 20:23:12,Java Full Stack Developer,Vrinda International Noida,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-java-full-stack-developer-vrinda-international-remote-4-to-9-years-090626504653?src=directSearch&sid=17823127870765308&xp=1&px=1,
+2026-06-24 20:23:49,Full Stack Developer,Fusiontecz,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-full-stack-developer-fusiontecz-solutions-remote-2-to-6-years-090626501994?src=directSearch&sid=17823127870765308&xp=2&px=1,
+2026-06-24 20:24:17,Sr. Software Engineer,Fundamento (formerly Skillr),failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-sr-software-engineer-fundamento-formerly-skillr-remote-3-to-6-years-050626503980?src=directSearch&sid=17823127870765308&xp=3&px=1,
+2026-06-24 20:24:45,Web Developer,Techbinge India,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-web-developer-techbinge-india-pvt-ltd-remote-2-to-4-years-080626500396?src=directSearch&sid=17823127870765308&xp=4&px=1,
+2026-06-24 20:25:12,Senior Software Engineer,Zuddl,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-senior-software-engineer-zuddl-remote-4-to-6-years-100626502887?src=directSearch&sid=17823127870765308&xp=5&px=1,
+2026-06-24 20:25:40,Software Craftsperson - ROR+ React,Incubyte Datatech,external_needs_manual_review,Could not find more fillable fields or next/submit buttons on external site.,https://www.naukri.com/job-listings-software-craftsperson-ror-react-incubyte-remote-2-to-5-years-240625503631?src=directSearch&sid=17823127870765308&xp=6&px=1,https://incubyte-incubyte.zohorecruit.in/jobs/Careers/141457000004276864
+2026-06-24 20:26:45,Senior Software Developer / Full Stack Developer,Sadhana It Solutions,external_needs_manual_review,Could not find more fillable fields or next/submit buttons on external site.,https://www.naukri.com/job-listings-senior-software-developer-full-stack-developer-sadhana-it-solutions-remote-3-to-8-years-090625500017?src=directSearch&sid=17823127870765308&xp=7&px=1,https://sadhanaitsolutions.com/we-are-iring/#content
+2026-06-24 20:28:34,AI Backend Developer,Nitsan Technologies,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-ai-backend-developer-nitsan-technologiess-remote-2-to-7-years-110626501222?src=directSearch&sid=17823127870765308&xp=8&px=1,
+2026-06-24 20:29:03,Full Stack Developer,Inceptory Technology,external_filled_manual_submit,External form filled; final submit left for manual confirmation.,https://www.naukri.com/job-listings-full-stack-developer-inceptory-technology-private-limited-remote-3-to-6-years-240326503629?src=directSearch&sid=17823127870765308&xp=9&px=1,https://inceptorytechnology.com/apply
+2026-06-24 20:30:25,Full Stack Web Developer,TCM Stunner It Consultants,external_needs_manual_review,"External site requires login, OTP, captcha, or account verification.",https://www.naukri.com/job-listings-full-stack-web-developer-tcm-stunner-it-consultants-remote-2-to-5-years-240626505998?src=directSearch&sid=17823127870765308&xp=10&px=1,https://tcmstunner.com/careers
+2026-06-24 20:31:43,Full Stack Developer,Drona Hq,external_needs_manual_review,Could not find more fillable fields or next/submit buttons on external site.,https://www.naukri.com/job-listings-full-stack-developer-drona-mobile-dronahq-remote-2-to-5-years-230125505539?src=directSearch&sid=17823127870765308&xp=11&px=1,https://crm.dronahq.io/DMxNqNIiHItLXfeUMxGVqCEh9xRdSpLoM6EOGqs1UVE4Z?jt=Full%20Stack%20Developer
+2026-06-24 20:32:58,Ruby on Rails Programmer,Avataa Solutions,external_needs_manual_review,Could not find more fillable fields or next/submit buttons on external site.,https://www.naukri.com/job-listings-ruby-on-rails-programmer-avataa-solutions-remote-2-to-5-years-150526503514?src=directSearch&sid=17823127870765308&xp=12&px=1,https://avataa.in/careers.html
+2026-06-24 20:34:16,Full Stack Developer,What The Food,external_filled_manual_submit,External form filled; final submit left for manual confirmation.,https://www.naukri.com/job-listings-full-stack-developer-what-the-food-remote-3-to-8-years-100626502932?src=directSearch&sid=17823127870765308&xp=13&px=1,https://whatthefood.in/join-us
+2026-06-24 20:35:44,Junior Full - Stack Business Developer,Shlok Information Systems,external_filled_manual_submit,External form filled; final submit left for manual confirmation.,https://www.naukri.com/job-listings-junior-full-stack-business-developer-shlok-information-systems-india-private-limited-remote-2-to-4-years-160626503415?src=directSearch&sid=17823127870765308&xp=14&px=1,https://career.mayvel.ai/jobs/6a1ed689ee3633a230474454
+2026-06-24 20:37:38,Dot Net C# - Senior Software Developer,Route Mobile (RML),external_filled_manual_submit,External form filled; final submit left for manual confirmation.,https://www.naukri.com/job-listings-dot-net-c-senior-software-developer-routesms-solutions-ltd-remote-2-to-5-years-250526504458?src=directSearch&sid=17823127870765308&xp=15&px=1,https://routemobile.com/job/senior-software-developer-net-c/
+2026-06-24 20:40:00,Full Stack Developer,Abhastra Technology,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-full-stack-developer-abhastra-technology-pvt-ltd-remote-2-to-7-years-040626501178?src=directSearch&sid=17823127870765308&xp=16&px=1,
+2026-06-24 20:40:33,ServiceNow Developer,E4 Softwares,external_filled_manual_submit,External form filled; final submit left for manual confirmation.,https://www.naukri.com/job-listings-servicenow-developer-e4-softwares-remote-1-to-4-years-120626505749?src=directSearch&sid=17823127870765308&xp=17&px=1,https://ats24.e4softwares.com/career/CareerDetails1?id=6Bad1608h60Ca2
+2026-06-24 20:42:01,Devops Engineer - GCP,Aventior Digital,needs_manual_review,Naukri chatbot flow stalled or needs manual attention.,https://www.naukri.com/job-listings-devops-engineer-gcp-aventior-digital-pune-3-to-8-years-140325000066?src=directSearch&sid=17823127870765308&xp=19&px=1,https://www.naukri.com/job-listings-devops-engineer-gcp-aventior-digital-pune-3-to-8-years-140325000066?src=directSearch&sid=17823127870765308&xp=19&px=1
+2026-06-24 21:04:25,Java Full Stack Developer,Vrinda International Noida,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-java-full-stack-developer-vrinda-international-remote-4-to-9-years-090626504653?src=directSearch&sid=17823152584538365&xp=1&px=1,
+2026-06-24 21:04:52,Full Stack Developer,Fusiontecz,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-full-stack-developer-fusiontecz-solutions-remote-2-to-6-years-090626501994?src=directSearch&sid=17823152584538365&xp=2&px=1,
+2026-06-24 21:05:20,Sr. Software Engineer,Fundamento (formerly Skillr),failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-sr-software-engineer-fundamento-formerly-skillr-remote-3-to-6-years-050626503980?src=directSearch&sid=17823152584538365&xp=3&px=1,
+2026-06-24 21:05:48,Web Developer,Techbinge India,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-web-developer-techbinge-india-pvt-ltd-remote-2-to-4-years-080626500396?src=directSearch&sid=17823152584538365&xp=4&px=1,
+2026-06-24 21:06:17,Senior Software Engineer,Zuddl,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-senior-software-engineer-zuddl-remote-4-to-6-years-100626502887?src=directSearch&sid=17823152584538365&xp=5&px=1,
+2026-06-24 21:06:47,AI Backend Developer,Nitsan Technologies,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-ai-backend-developer-nitsan-technologiess-remote-2-to-7-years-110626501222?src=directSearch&sid=17823152584538365&xp=6&px=1,
+2026-06-24 21:07:16,Full Stack Developer,Abhastra Technology,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-full-stack-developer-abhastra-technology-pvt-ltd-remote-2-to-7-years-040626501178?src=directSearch&sid=17823152584538365&xp=7&px=1,
+2026-06-24 21:07:45,Devops Engineer - GCP,Aventior Digital,needs_manual_review,Naukri chatbot flow stalled or needs manual attention.,https://www.naukri.com/job-listings-devops-engineer-gcp-aventior-digital-pune-3-to-8-years-140325000066?src=directSearch&sid=17823152584538365&xp=8&px=1,https://www.naukri.com/job-listings-devops-engineer-gcp-aventior-digital-pune-3-to-8-years-140325000066?src=directSearch&sid=17823152584538365&xp=8&px=1
+2026-06-24 21:08:39,Java Developer,Ovitech Solutions,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-java-developer-ovitech-solutions-remote-1-to-10-years-310326502534?src=directSearch&sid=17823152584538365&xp=9&px=1,
+2026-06-24 21:09:07,Java Developer,Crayontek,failed,Naukri Apply / Apply on company site button not found or not clickable.,https://www.naukri.com/job-listings-java-developer-crayontek-remote-2-to-5-years-300822502752?src=directSearch&sid=17823152584538365&xp=10&px=1,

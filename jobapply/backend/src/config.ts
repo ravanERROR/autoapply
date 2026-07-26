@@ -35,7 +35,12 @@ export const FILTERS_DIR = appRootPath(
   process.env.FILTERS_DIR,
   path.join('configs', 'filters'),
 );
+export const QUESTIONS_JSON = appRootPath(
+  process.env.QUESTIONS_JSON,
+  path.join('configs', 'questions.json'),
+);
 export const FRONTEND_DIST = appRootPath(
   process.env.FRONTEND_DIST,
   path.join('frontend', 'dist'),
 );
+
